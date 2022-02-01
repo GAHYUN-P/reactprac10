@@ -6,7 +6,7 @@ const CREATE = 'bucket/CREATE';
 
 // 초기값 지정
 const initialState = {
-    list: ["영화관 가기", "매일 책읽기", "수영 배우기"],
+    list: ["영화관 가기", "매일 책읽기", "수영 배우기", "코딩 하기"],
 };
 
 // Action Creators
