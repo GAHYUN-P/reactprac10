@@ -3,6 +3,7 @@
 // Actions
 // Action 타입을 정해주는 부분
 const CREATE = 'bucket/CREATE';
+const DELETE = 'bucket/DELETE';
 
 // 초기값 지정
 const initialState = {
@@ -13,8 +14,18 @@ const initialState = {
 export function createBucket(bucket) {
     // bucket이 새로운 데이터가 된다.
     console.log("액션을 생성할거야!");
+    console.log(bucket)
     return { type: CREATE, bucket};
-}
+};
+
+export function deleteBucket(bucket_index) {
+    // bucket이 새로운 데이터가 된다.
+    console.log("액션을 생성할거야!");
+    console.log(bucket_index);
+    return { type: DELETE, bucket_index};
+};
+
+
 
 // Reducer
 export default function reducer(state = initialState, action = {}) {
@@ -23,7 +34,22 @@ export default function reducer(state = initialState, action = {}) {
 switch (action.type) {
     case "bucket/CREATE" : {
         console.log("이제 값을 바꿀거야!");
+        console.log(...state.list);
+        // 책읽기 수영 배우기 코딩 하기
+        console.log(state.list);
+        // ['영화관 가기', '매일 책읽기', '수영 배우기', '코딩 하기']
+        console.log(action);
         const new_bucket_list = [...state.list, action.bucket]; 
+        return {list : new_bucket_list};
+    }
+
+    case "bucket/DELETE" : {
+        console.log(action.bucket_index)
+        console.log("이제 값을 바꿀거야!");
+        const new_bucket_list = state.list.filter((l, idx) => {
+            return parseInt(action.bucket_index) !== idx;
+        });
+
         return {list : new_bucket_list};
     }
 // do reducer stuff
