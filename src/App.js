@@ -39,7 +39,7 @@ function App() {
                 {/* <컴포넌트 명 [props 명]={넘겨줄 것(리스트, 문자열, 숫자, ...)}/> */}
                 <Switch>
                     <Route path="/" exact render={(props) => (<BucketList list={list}/>)}/>
-                    <Route path="/detail" component={Detail}/>
+                    <Route path="/detail/:index" component={Detail}/>
                     <Route component={NotFound}/>
                 </Switch>
                 {/* 스위치 안에 있는 경로들을 하나씩 하나씩 비교하고 전부 안맞으면 
