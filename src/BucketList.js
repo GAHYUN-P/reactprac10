@@ -10,8 +10,6 @@ import {useDispatch, useSelector} from "react-redux";
 
 const BucketList = (props) => {
     let history = useHistory();
-    // console.log(props);
-    // const my_lists = props.list;
 
     // 여기에서 state는 리덕스 스토어가 가진 전체 데이터예요.
     // 우리는 그 중, bucket 안에 들어있는 list를 가져옵니다.

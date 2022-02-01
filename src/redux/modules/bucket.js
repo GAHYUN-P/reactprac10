@@ -12,6 +12,7 @@ const initialState = {
 // Action Creators
 export function createBucket(bucket) {
     // bucket이 새로운 데이터가 된다.
+    console.log("액션을 생성할거야!");
     return { type: CREATE, bucket};
 }
 
@@ -21,6 +22,7 @@ export default function reducer(state = initialState, action = {}) {
 // 파라미터에 값이 안들어왔을때 발생할 수 있는 오류 방지
 switch (action.type) {
     case "bucket/CREATE" : {
+        console.log("이제 값을 바꿀거야!");
         const new_bucket_list = [...state.list, action.bucket]; 
         return {list : new_bucket_list};
     }
