@@ -10,7 +10,11 @@ import { createBucket } from "./redux/modules/bucket";
 import BucketList from "./BucketList";
 import Detail from "./Detail";
 import NotFound from "./NotFound";
+
+// 데이터 베이스 데이터 가져오기
 import { db } from "./firebase";
+import { collection, getDoc, getDocs } from "firebase/firestore";
+
 
 
 
@@ -20,8 +24,17 @@ function App() {
     const text = React.useRef(null);
     const dispatch = useDispatch();
 
-    React.useEffect(() =>{
+    // async로 기다리게 해줄 수 있다.
+    React.useEffect(async() =>{
         console.log(db)
+        const query = await getDocs(collection(db, 'bucket'));
+
+        //데이터를 보기 좋게 하려고. Array의 forEach함수 아님
+        query.forEach((doc)=> {
+            console.log(doc.id, doc.data());
+            // {completed: false, text: '잠 잘 자기'}
+        });
+
     }, []);
 
     const addBucketList = () => {
