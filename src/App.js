@@ -10,6 +10,7 @@ import { createBucket } from "./redux/modules/bucket";
 import BucketList from "./BucketList";
 import Detail from "./Detail";
 import NotFound from "./NotFound";
+import { db } from "./firebase";
 
 
 
@@ -18,6 +19,10 @@ function App() {
     const [list, setList] = React.useState(["영화관 가기", "매일 책읽기", "수영 배우기"]);
     const text = React.useRef(null);
     const dispatch = useDispatch();
+
+    React.useEffect(() =>{
+        console.log(db)
+    }, []);
 
     const addBucketList = () => {
         // 스프레드 문법! 기억하고 계신가요? :) 원본 배열 list에 새로운 요소를 추가해주었습니다.
